@@ -1,10 +1,20 @@
 package by.tc.task01.entity;
 
-public class Speakers extends Appliance {
+public class Speakers implements Appliance {
 	private int powerConsumption;
 	private int numberSpeakers;
 	private String frequencyRange;
 	private int cordLength;
+
+	public Speakers() {
+	}
+
+	public Speakers(int powerConsumption, int numberSpeakers, String frequencyRange, int cordLength) {
+		this.powerConsumption = powerConsumption;
+		this.numberSpeakers = numberSpeakers;
+		this.frequencyRange = frequencyRange;
+		this.cordLength = cordLength;
+	}
 
 	public int getPowerConsumption() {
 		return powerConsumption;
@@ -74,5 +84,15 @@ public class Speakers extends Appliance {
 		result = 31 * result + getNumberSpeakers();
 		result = 31 * result + getPowerConsumption();
 		return result;
+	}
+
+	@Override
+	public String toString() {
+		return "Speakers{" +
+				"powerConsumption=" + powerConsumption +
+				", numberSpeakers=" + numberSpeakers +
+				", frequencyRange='" + frequencyRange + '\'' +
+				", cordLength=" + cordLength +
+				'}';
 	}
 }

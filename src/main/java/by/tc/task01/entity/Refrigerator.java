@@ -1,12 +1,24 @@
 package by.tc.task01.entity;
 
-public class Refrigerator extends Appliance {
+public class Refrigerator implements Appliance {
 	private int powerConsumption;
 	private int weight;
 	private int freezerCapacity;
 	private int overallCapacity;
 	private int height;
 	private int width;
+
+	public Refrigerator() {
+	}
+
+	public Refrigerator(int powerConsumption, int weight, int freezerCapacity, int overallCapacity, int height, int width) {
+		this.powerConsumption = powerConsumption;
+		this.weight = weight;
+		this.freezerCapacity = freezerCapacity;
+		this.overallCapacity = overallCapacity;
+		this.height = height;
+		this.width = width;
+	}
 
 	public int getPowerConsumption() {
 		return powerConsumption;
@@ -97,5 +109,17 @@ public class Refrigerator extends Appliance {
 		result = 31 * result + getHeight();
 		result = 31 * result + getWidth();
 		return result;
+	}
+
+	@Override
+	public String toString() {
+		return "Refrigerator{" +
+				"powerConsumption=" + powerConsumption +
+				", weight=" + weight +
+				", freezerCapacity=" + freezerCapacity +
+				", overallCapacity=" + overallCapacity +
+				", height=" + height +
+				", width=" + width +
+				'}';
 	}
 }

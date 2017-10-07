@@ -1,12 +1,24 @@
 package by.tc.task01.entity;
 
-public class VacuumCleaner extends Appliance {
+public class VacuumCleaner implements Appliance {
 	private int powerConsumption;
-	private char filterType;
+	private String filterType;
 	private String bagType;
 	private String wandType;
 	private int motorSpeedRegulation;
 	private int cleaningWidth;
+
+	public VacuumCleaner() {
+	}
+
+	public VacuumCleaner(int powerConsumption, String filterType, String bagType, String wandType, int motorSpeedRegulation, int cleaningWidth) {
+		this.powerConsumption = powerConsumption;
+		this.filterType = filterType;
+		this.bagType = bagType;
+		this.wandType = wandType;
+		this.motorSpeedRegulation = motorSpeedRegulation;
+		this.cleaningWidth = cleaningWidth;
+	}
 
 	public int getPowerConsumption() {
 		return powerConsumption;
@@ -16,11 +28,11 @@ public class VacuumCleaner extends Appliance {
 		this.powerConsumption = powerConsumption;
 	}
 
-	public char getFilterType() {
+	public String getFilterType() {
 		return filterType;
 	}
 
-	public void setFilterType(char filterType) {
+	public void setFilterType(String filterType) {
 		this.filterType = filterType;
 	}
 
@@ -75,7 +87,11 @@ public class VacuumCleaner extends Appliance {
 		} else if (!getBagType().equals(that.getBagType())) {
 			return false;
 		}
-		if (getFilterType() != that.getFilterType()) {
+		if(getFilterType() == null){
+			if(that.getFilterType()!=null){
+				return false;
+			}
+		}else if (!getFilterType().equals(that.getFilterType())){
 			return false;
 		}
 		if (getMotorSpeedRegulation() != that.getMotorSpeedRegulation()) {
@@ -94,11 +110,23 @@ public class VacuumCleaner extends Appliance {
 	@Override
 	public int hashCode() {
 		int result = getPowerConsumption();
-		result = 31 * result + (int) getFilterType();
+		result = 31 * result + (getFilterType() != null ? getFilterType().hashCode(): 0);
 		result = 31 * result + (getBagType() != null ? getBagType().hashCode() : 0);
 		result = 31 * result + (getWandType() != null ? getWandType().hashCode() : 0);
 		result = 31 * result + getMotorSpeedRegulation();
 		result = 31 * result + getCleaningWidth();
 		return result;
+	}
+
+	@Override
+	public String toString() {
+		return "VacuumCleaner{" +
+				"powerConsumption=" + powerConsumption +
+				", filterType='" + filterType + '\'' +
+				", bagType='" + bagType + '\'' +
+				", wandType='" + wandType + '\'' +
+				", motorSpeedRegulation=" + motorSpeedRegulation +
+				", cleaningWidth=" + cleaningWidth +
+				'}';
 	}
 }

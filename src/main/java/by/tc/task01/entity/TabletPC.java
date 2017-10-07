@@ -1,11 +1,22 @@
 package by.tc.task01.entity;
 
-public class TabletPC extends Appliance {
+public class TabletPC implements Appliance {
 	private int batteryCapacity;
 	private int displayInches;
 	private int memoryRom;
 	private int flashMemoryCapacity;
 	private String color;
+
+	public TabletPC() {
+	}
+
+	public TabletPC(int batteryCapacity, int displayInches, int memoryRom, int flashMemoryCapacity, String color) {
+		this.batteryCapacity = batteryCapacity;
+		this.displayInches = displayInches;
+		this.memoryRom = memoryRom;
+		this.flashMemoryCapacity = flashMemoryCapacity;
+		this.color = color;
+	}
 
 	public int getBatteryCapacity() {
 		return batteryCapacity;
@@ -86,5 +97,16 @@ public class TabletPC extends Appliance {
 		result = 31 * result + getFlashMemoryCapacity();
 		result = 31 * result + getMemoryRom();
 		return result;
+	}
+
+	@Override
+	public String toString() {
+		return "TabletPC{" +
+				"batteryCapacity=" + batteryCapacity +
+				", displayInches=" + displayInches +
+				", memoryRom=" + memoryRom +
+				", flashMemoryCapacity=" + flashMemoryCapacity +
+				", color='" + color + '\'' +
+				'}';
 	}
 }
