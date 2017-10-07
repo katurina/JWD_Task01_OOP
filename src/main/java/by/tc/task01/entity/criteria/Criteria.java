@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class Criteria<E> {
 
-	private Map<E, Object> criteria = new HashMap<E, Object>();
+	private Map<E, Object> criteria = new HashMap<>();
 
 	public void add(E searchCriteria, Object value) {
 		criteria.put(searchCriteria, value);
