@@ -101,7 +101,7 @@ public class VacuumCleaner implements Appliance {
 			if (that.getWandType() != null) {
 				return false;
 			}
-		} else if (!getWandType().equals(that.getBagType())) {
+		} else if (!getWandType().equals(that.getWandType())) {
 			return false;
 		}
 		return getPowerConsumption() == that.getPowerConsumption();

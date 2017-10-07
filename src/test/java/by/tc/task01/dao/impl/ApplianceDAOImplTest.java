@@ -4,6 +4,9 @@ import by.tc.task01.entity.Appliance;
 import by.tc.task01.entity.Laptop;
 import by.tc.task01.entity.Oven;
 import by.tc.task01.entity.Refrigerator;
+import by.tc.task01.entity.Speakers;
+import by.tc.task01.entity.TabletPC;
+import by.tc.task01.entity.VacuumCleaner;
 import by.tc.task01.entity.criteria.Criteria;
 import by.tc.task01.entity.criteria.SearchCriteria;
 import org.junit.Assert;
@@ -47,5 +50,40 @@ public class ApplianceDAOImplTest {
 		Assert.assertEquals(expected, actual);
 	}
 
+	@Test
+	public void findVacuumCleaner() {
+//			VacuumCleaner : POWER_CONSUMPTION=90, FILTER_TYPE=C, BAG_TYPE=XX00, WAND_TYPE=all-in-one, MOTOR_SPEED_REGULATION=2950, CLEANING_WIDTH=30;
+		ApplianceDAOImpl applianceDAO = new ApplianceDAOImpl();
+		Criteria<SearchCriteria.VacuumCleaner> vacuumCleanerCriteria = new Criteria<>();
+		vacuumCleanerCriteria.add(SearchCriteria.VacuumCleaner.POWER_CONSUMPTION, 90);
+		vacuumCleanerCriteria.add(SearchCriteria.VacuumCleaner.CLEANING_WIDTH, 30);
+		Appliance actual = applianceDAO.find(vacuumCleanerCriteria);
+		VacuumCleaner expected = new VacuumCleaner(90, "C", "XX00", "all-in-one", 2950, 30);
+		Assert.assertEquals(expected, actual);
+	}
 
+	@Test
+	public void findTabletPC() {
+//			TabletPC : BATTERY_CAPACITY=3, DISPLAY_INCHES=14, MEMORY_ROM=8000, FLASH_MEMORY_CAPACITY=2, COLOR=blue;
+		ApplianceDAOImpl applianceDAO = new ApplianceDAOImpl();
+		Criteria<SearchCriteria.TabletPC> tabletPCCriteria = new Criteria<>();
+		tabletPCCriteria.add(SearchCriteria.TabletPC.DISPLAY_INCHES, 14);
+		tabletPCCriteria.add(SearchCriteria.TabletPC.COLOR, "blue");
+		Appliance actual = applianceDAO.find(tabletPCCriteria);
+		TabletPC expected = new TabletPC(3, 14, 8000, 2, "blue");
+		Assert.assertEquals(expected, actual);
+
+	}
+
+	@Test
+	public void findSpeakers() {
+//			Speakers : POWER_CONSUMPTION=20, NUMBER_OF_SPEAKERS=3, FREQUENCY_RANGE=3-4, CORD_LENGTH=3;
+		ApplianceDAOImpl applianceDAO = new ApplianceDAOImpl();
+		Criteria<SearchCriteria.Speakers> speakersCriteria = new Criteria<>();
+		speakersCriteria.add(SearchCriteria.Speakers.NUMBER_OF_SPEAKERS, 3);
+		speakersCriteria.add(SearchCriteria.Speakers.CORD_LENGTH, 3);
+		Appliance actual = applianceDAO.find(speakersCriteria);
+		Speakers expected = new Speakers(20, 3, "3-4", 3);
+		Assert.assertEquals(expected, actual);
+	}
 }

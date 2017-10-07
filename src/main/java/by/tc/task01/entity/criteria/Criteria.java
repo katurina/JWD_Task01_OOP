@@ -22,4 +22,12 @@ public class Criteria<E> {
 		}
 		return list;
 	}
+
+	public String getParamClassName() {
+		for (E e : criteria.keySet()) {
+			String classParam = e.getClass().getCanonicalName();
+			return classParam.substring(classParam.lastIndexOf('.') + 1, classParam.length());
+		}
+		return null;
+	}
 }
