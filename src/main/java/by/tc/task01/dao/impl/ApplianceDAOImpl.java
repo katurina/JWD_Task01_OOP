@@ -26,6 +26,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 			if (criteria == null) {
 				return null;
 			}
+
 			String tmp = "";
 			while ((tmp = bufferedReader.readLine()) != null) {
 				if (tmp.isEmpty()) {
