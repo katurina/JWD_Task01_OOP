@@ -4,7 +4,7 @@ public class Refrigerator implements Appliance {
 	private int powerConsumption;
 	private int weight;
 	private int freezerCapacity;
-	private int overallCapacity;
+	private double overallCapacity;
 	private int height;
 	private int width;
 
@@ -44,7 +44,7 @@ public class Refrigerator implements Appliance {
 		this.freezerCapacity = freezerCapacity;
 	}
 
-	public int getOverallCapacity() {
+	public double getOverallCapacity() {
 		return overallCapacity;
 	}
 
@@ -105,7 +105,7 @@ public class Refrigerator implements Appliance {
 		int result = getPowerConsumption();
 		result = 31 * result + getWeight();
 		result = 31 * result + getFreezerCapacity();
-		result = 31 * result + getOverallCapacity();
+		result = 31 * result + Double.hashCode(getOverallCapacity());
 		result = 31 * result + getHeight();
 		result = 31 * result + getWidth();
 		return result;

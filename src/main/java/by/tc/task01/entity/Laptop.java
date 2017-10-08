@@ -96,7 +96,7 @@ public class Laptop implements Appliance {
 			if (that.getOs() != null) {
 				return false;
 			}
-		} else if (!getOs().equals(that.getOs())) {
+		} else if (!getOs().equalsIgnoreCase(that.getOs())) {
 			return false;
 		}
 		return getSystemMemory() == that.getSystemMemory();

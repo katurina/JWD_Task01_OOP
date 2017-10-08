@@ -84,14 +84,14 @@ public class VacuumCleaner implements Appliance {
 			if (that.getBagType() != null) {
 				return false;
 			}
-		} else if (!getBagType().equals(that.getBagType())) {
+		} else if (!getBagType().equalsIgnoreCase(that.getBagType())) {
 			return false;
 		}
 		if(getFilterType() == null){
 			if(that.getFilterType()!=null){
 				return false;
 			}
-		}else if (!getFilterType().equals(that.getFilterType())){
+		} else if (!getFilterType().equalsIgnoreCase(that.getFilterType())) {
 			return false;
 		}
 		if (getMotorSpeedRegulation() != that.getMotorSpeedRegulation()) {
@@ -101,7 +101,7 @@ public class VacuumCleaner implements Appliance {
 			if (that.getWandType() != null) {
 				return false;
 			}
-		} else if (!getWandType().equals(that.getWandType())) {
+		} else if (!getWandType().equalsIgnoreCase(that.getWandType())) {
 			return false;
 		}
 		return getPowerConsumption() == that.getPowerConsumption();

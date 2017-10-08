@@ -14,17 +14,13 @@ public class Criteria<E> {
 		criteria.put(searchCriteria, value);
 	}
 
-	public List<String> getListCriteria() {
+	public List<String> getCriteriaList() {
 		Set<Map.Entry<E, Object>> entries = criteria.entrySet();
 		List<String> list = new ArrayList<>();
 		for (Map.Entry<E, Object> entry : entries) {
 			list.add(entry.getKey() + "=" + entry.getValue());
 		}
 		return list;
-	}
-
-	public Set<E> getSetKeys() {
-		return criteria.keySet();
 	}
 
 	public String getParamClassName() {
@@ -38,6 +34,5 @@ public class Criteria<E> {
 	public Map<E, Object> getCriteria() {
 		return criteria;
 	}
-
 
 }

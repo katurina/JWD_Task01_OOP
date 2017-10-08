@@ -5,14 +5,14 @@ public class Oven implements Appliance {
 	private int powerConsumption;
 	private int weight;
 	private int capacity;
-	private double depth;
+	private int depth;
 	private double height;
 	private double width;
 
 	public Oven() {
 	}
 
-	public Oven(int powerConsumption, int weight, int capacity, double depth, double height, double width) {
+	public Oven(int powerConsumption, int weight, int capacity, int depth, double height, double width) {
 		this.powerConsumption = powerConsumption;
 		this.weight = weight;
 		this.capacity = capacity;
@@ -45,11 +45,11 @@ public class Oven implements Appliance {
 		this.capacity = capacity;
 	}
 
-	public double getDepth() {
+	public int getDepth() {
 		return depth;
 	}
 
-	public void setDepth(double depth) {
+	public void setDepth(int depth) {
 		this.depth = depth;
 	}
 
@@ -104,7 +104,7 @@ public class Oven implements Appliance {
 	@Override
 	public int hashCode() {
 		int result = getCapacity();
-		result = result * 31 + Double.hashCode(getDepth());
+		result = result * 31 + getDepth();
 		result = result * 31 + Double.hashCode(getHeight());
 		result = result * 31 + getPowerConsumption();
 		result = result * 31 + getWeight();

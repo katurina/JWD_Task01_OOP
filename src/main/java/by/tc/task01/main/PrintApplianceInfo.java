@@ -11,7 +11,4 @@ public class PrintApplianceInfo {
 			System.out.println("NO SUCH APPLIANCE");
 		}
 	}
-
-	// you may add your own code here
-
 }
