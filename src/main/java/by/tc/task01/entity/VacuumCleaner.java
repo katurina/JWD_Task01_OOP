@@ -120,13 +120,12 @@ public class VacuumCleaner implements Appliance {
 
 	@Override
 	public String toString() {
-		return "VacuumCleaner{" +
+		return "VacuumCleaner : " +
 				"powerConsumption=" + powerConsumption +
-				", filterType='" + filterType + '\'' +
-				", bagType='" + bagType + '\'' +
-				", wandType='" + wandType + '\'' +
+				", filterType=" + filterType +
+				", bagType=" + bagType +
+				", wandType=" + wandType +
 				", motorSpeedRegulation=" + motorSpeedRegulation +
-				", cleaningWidth=" + cleaningWidth +
-				'}';
+				", cleaningWidth=" + cleaningWidth;
 	}
 }

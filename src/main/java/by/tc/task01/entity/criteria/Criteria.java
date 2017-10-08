@@ -23,6 +23,10 @@ public class Criteria<E> {
 		return list;
 	}
 
+	public Set<E> getSetKeys() {
+		return criteria.keySet();
+	}
+
 	public String getParamClassName() {
 		for (E e : criteria.keySet()) {
 			String classParam = e.getClass().getCanonicalName();
@@ -30,4 +34,10 @@ public class Criteria<E> {
 		}
 		return null;
 	}
+
+	public Map<E, Object> getCriteria() {
+		return criteria;
+	}
+
+
 }

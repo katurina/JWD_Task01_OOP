@@ -114,13 +114,12 @@ public class Oven implements Appliance {
 
 	@Override
 	public String toString() {
-		return "Oven{" +
+		return "Oven : " +
 				"powerConsumption=" + powerConsumption +
 				", weight=" + weight +
 				", capacity=" + capacity +
 				", depth=" + depth +
 				", height=" + height +
-				", width=" + width +
-				'}';
+				", width=" + width;
 	}
 }

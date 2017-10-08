@@ -42,9 +42,22 @@ public class Main {
 		criteriaTabletPC.add(TabletPC.DISPLAY_INCHES, 14);
 		criteriaTabletPC.add(TabletPC.MEMORY_ROM, 4);
 
-		appliance = service.find(criteriaOven);
+		appliance = service.find(criteriaTabletPC);
 
 		PrintApplianceInfo.print(appliance);
+
+		//////////////////////////////////////////////////////////////////
+//TabletPC : BATTERY_CAPACITY=3, DISPLAY_INCHES=14, MEMORY_ROM=8000, FLASH_MEMORY_CAPACITY=2, COLOR=blue;
+
+		criteriaTabletPC = new Criteria<TabletPC>();
+		criteriaTabletPC.add(TabletPC.COLOR, "BLUE");
+		criteriaTabletPC.add(TabletPC.DISPLAY_INCHES, 14);
+		criteriaTabletPC.add(TabletPC.MEMORY_ROM, 8000);
+
+		appliance = service.find(criteriaTabletPC);
+
+		PrintApplianceInfo.print(appliance);
+
 
 	}
 

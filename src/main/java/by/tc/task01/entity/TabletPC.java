@@ -101,12 +101,11 @@ public class TabletPC implements Appliance {
 
 	@Override
 	public String toString() {
-		return "TabletPC{" +
+		return "TabletPC : " +
 				"batteryCapacity=" + batteryCapacity +
 				", displayInches=" + displayInches +
 				", memoryRom=" + memoryRom +
 				", flashMemoryCapacity=" + flashMemoryCapacity +
-				", color='" + color + '\'' +
-				'}';
+				", color=" + color;
 	}
 }

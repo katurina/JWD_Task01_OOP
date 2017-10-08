@@ -8,7 +8,7 @@ public class PrintApplianceInfo {
 		if (appliance != null) {
 			System.out.println(appliance.toString());
 		} else {
-			System.out.println();
+			System.out.println("NO SUCH APPLIANCE");
 		}
 	}
 

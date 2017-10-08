@@ -115,13 +115,12 @@ public class Laptop implements Appliance {
 
 	@Override
 	public String toString() {
-		return "Laptop{" +
+		return "Laptop : " +
 				"batteryCapacity=" + batteryCapacity +
-				", os='" + os + '\'' +
+				", os=" + os +
 				", memoryROM=" + memoryROM +
 				", systemMemory=" + systemMemory +
 				", cpu=" + cpu +
-				", displayInchs=" + displayInchs +
-				'}';
+				", displayInchs=" + displayInchs;
 	}
 }
