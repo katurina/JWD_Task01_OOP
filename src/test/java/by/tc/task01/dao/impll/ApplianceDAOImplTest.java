@@ -1,4 +1,4 @@
-package by.tc.task01.dao.impl;
+package by.tc.task01.dao.impll;
 
 import by.tc.task01.entity.Appliance;
 import by.tc.task01.entity.Laptop;
