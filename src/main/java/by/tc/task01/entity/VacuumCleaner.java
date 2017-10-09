@@ -1,6 +1,6 @@
 package by.tc.task01.entity;
 
-public class VacuumCleaner implements Appliance {
+public class VacuumCleaner extends Appliance {
 	private int powerConsumption;
 	private String filterType;
 	private String bagType;
@@ -84,14 +84,14 @@ public class VacuumCleaner implements Appliance {
 			if (that.getBagType() != null) {
 				return false;
 			}
-		} else if (!getBagType().equalsIgnoreCase(that.getBagType())) {
+		} else if (!getBagType().equals(that.getBagType())) {
 			return false;
 		}
 		if(getFilterType() == null){
 			if(that.getFilterType()!=null){
 				return false;
 			}
-		} else if (!getFilterType().equalsIgnoreCase(that.getFilterType())) {
+		} else if (!getFilterType().equals(that.getFilterType())) {
 			return false;
 		}
 		if (getMotorSpeedRegulation() != that.getMotorSpeedRegulation()) {
@@ -101,7 +101,7 @@ public class VacuumCleaner implements Appliance {
 			if (that.getWandType() != null) {
 				return false;
 			}
-		} else if (!getWandType().equalsIgnoreCase(that.getWandType())) {
+		} else if (!getWandType().equals(that.getWandType())) {
 			return false;
 		}
 		return getPowerConsumption() == that.getPowerConsumption();

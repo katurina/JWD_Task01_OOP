@@ -1,6 +1,6 @@
 package by.tc.task01.entity;
 
-public class Refrigerator implements Appliance {
+public class Refrigerator extends Appliance {
 	private int powerConsumption;
 	private int weight;
 	private int freezerCapacity;

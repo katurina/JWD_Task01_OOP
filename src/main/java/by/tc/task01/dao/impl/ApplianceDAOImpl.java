@@ -37,7 +37,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 					boolean containsCriteria = true;
 					List<String> criteriaList = criteria.getCriteriaList();
 					for (String criteriaStr : criteriaList) {
-						if (!tmp.contains(criteriaStr)) {
+						if (!tmp.toLowerCase().contains(criteriaStr.toLowerCase())) {
 							containsCriteria = false;
 							break;
 						}
@@ -52,7 +52,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 								tmp = tmp.substring(tmp.indexOf(',') + 2);
 								oven.setCapacity(Integer.decode(tmp.substring(tmp.indexOf('=') + 1, tmp.indexOf(','))));
 								tmp = tmp.substring(tmp.indexOf(',') + 2);
-								oven.setDepth(Integer.valueOf(tmp.substring(tmp.indexOf('=') + 1, tmp.indexOf(','))));
+								oven.setDepth(Integer.decode(tmp.substring(tmp.indexOf('=') + 1, tmp.indexOf(','))));
 								tmp = tmp.substring(tmp.indexOf(',') + 2);
 								oven.setHeight(Double.valueOf(tmp.substring(tmp.indexOf('=') + 1, tmp.indexOf(','))));
 								tmp = tmp.substring(tmp.indexOf(',') + 2, tmp.length() - 1);

@@ -1,6 +1,6 @@
 package by.tc.task01.entity;
 
-public class TabletPC implements Appliance {
+public class TabletPC extends Appliance {
 	private int batteryCapacity;
 	private int displayInches;
 	private int memoryRom;

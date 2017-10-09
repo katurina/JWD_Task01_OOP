@@ -1,6 +1,6 @@
 package by.tc.task01.entity;
 
-public class Laptop implements Appliance {
+public class Laptop extends Appliance {
 	private double batteryCapacity;
 	private String os;
 	private int memoryROM;
@@ -96,7 +96,7 @@ public class Laptop implements Appliance {
 			if (that.getOs() != null) {
 				return false;
 			}
-		} else if (!getOs().equalsIgnoreCase(that.getOs())) {
+		} else if (!getOs().equals(that.getOs())) {
 			return false;
 		}
 		return getSystemMemory() == that.getSystemMemory();

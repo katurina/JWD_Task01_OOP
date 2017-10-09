@@ -1,6 +1,6 @@
 package by.tc.task01.entity;
 
-public class Speakers implements Appliance {
+public class Speakers extends Appliance {
 	private int powerConsumption;
 	private int numberSpeakers;
 	private String frequencyRange;

@@ -7,11 +7,11 @@ import java.util.regex.Pattern;
 
 public class Validator {
 
-	public static final Pattern DOUBLE_OR_INT = Pattern.compile("(\\d+\\.\\d+)|(\\d+)");
-	public static final Pattern INT = Pattern.compile("^[0-9]+");
-	public static final Pattern STRING = Pattern.compile("[a-zA-Z]+");
-	public static final Pattern STRING_SPECIFIC_SYMBOL = Pattern.compile("[a-zA-Z0-9-]+");
-	public static final Pattern RANGE = Pattern.compile("((\\d+\\.\\d+)|(\\d+))-((\\d+\\.\\d+)|(\\d+))");
+	private static final Pattern DOUBLE_OR_INT = Pattern.compile("(\\d+\\.\\d+)|(\\d+)");
+	private static final Pattern INT = Pattern.compile("^[0-9]+");
+	private static final Pattern STRING = Pattern.compile("[a-zA-Z]+");
+	private static final Pattern STRING_SPECIFIC_SYMBOL = Pattern.compile("[a-zA-Z0-9-]+");
+	private static final Pattern RANGE = Pattern.compile("((\\d+\\.\\d+)|(\\d+))-((\\d+\\.\\d+)|(\\d+))");
 
 	public static <E> boolean criteriaValidator(Criteria<E> criteria) {
 		switch (criteria.getParamClassName()) {
@@ -22,7 +22,6 @@ public class Validator {
 						if (!STRING.matcher(entry.getValue().toString()).matches()) {
 							return false;
 						}
-						entry.setValue(entry.getValue().toString().toLowerCase());
 					} else if (nameKey.equals("BATTERY_CAPACITY") || nameKey.equals("DISPLAY_INCHES")
 							|| nameKey.equals("MEMORY_ROM") || nameKey.equals("FLASH_MEMORY_CAPACITY")) {
 						if (!INT.matcher(entry.getValue().toString()).matches()) {
