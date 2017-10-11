@@ -31,7 +31,6 @@ public class ApplianceDAOImplTest {
 		laptopCriteria.add(SearchCriteria.Laptop.CPU, 1.2);
 		laptopCriteria.add(SearchCriteria.Laptop.MEMORY_ROM, 4000);
 		laptopCriteria.add(SearchCriteria.Laptop.OS, "Windows");
-//		Laptop : BATTERY_CAPACITY=1, OS=Windows, MEMORY_ROM=4000, SYSTEM_MEMORY=1000, CPU=1.2, DISPLAY_INCHS=18;
 		Appliance actual = applianceDAO.find(laptopCriteria);
 		Laptop expected = new Laptop(1, "Windows", 4000, 1000, 1.2, 18);
 		Assert.assertEquals(expected, actual);
@@ -42,7 +41,6 @@ public class ApplianceDAOImplTest {
 	public void findRefrigirator() {
 		ApplianceDAOImpl applianceDAO = new ApplianceDAOImpl();
 		Criteria<SearchCriteria.Refrigerator> refrigeratorCriteria = new Criteria<>();
-//		Refrigerator : POWER_CONSUMPTION=100, WEIGHT=20, FREEZER_CAPACITY=10, OVERALL_CAPACITY=300, HEIGHT=200, WIDTH=70;
 		refrigeratorCriteria.add(SearchCriteria.Refrigerator.HEIGHT, 200);
 		refrigeratorCriteria.add(SearchCriteria.Refrigerator.WEIGHT, 20);
 		Appliance actual = applianceDAO.find(refrigeratorCriteria);
@@ -52,7 +50,6 @@ public class ApplianceDAOImplTest {
 
 	@Test
 	public void findVacuumCleaner() {
-//			VacuumCleaner : POWER_CONSUMPTION=90, FILTER_TYPE=C, BAG_TYPE=XX00, WAND_TYPE=all-in-one, MOTOR_SPEED_REGULATION=2950, CLEANING_WIDTH=30;
 		ApplianceDAOImpl applianceDAO = new ApplianceDAOImpl();
 		Criteria<SearchCriteria.VacuumCleaner> vacuumCleanerCriteria = new Criteria<>();
 		vacuumCleanerCriteria.add(SearchCriteria.VacuumCleaner.POWER_CONSUMPTION, 90);
@@ -64,7 +61,6 @@ public class ApplianceDAOImplTest {
 
 	@Test
 	public void findTabletPC() {
-//			TabletPC : BATTERY_CAPACITY=3, DISPLAY_INCHES=14, MEMORY_ROM=8000, FLASH_MEMORY_CAPACITY=2, COLOR=blue;
 		ApplianceDAOImpl applianceDAO = new ApplianceDAOImpl();
 		Criteria<SearchCriteria.TabletPC> tabletPCCriteria = new Criteria<>();
 		tabletPCCriteria.add(SearchCriteria.TabletPC.DISPLAY_INCHES, 14);
@@ -77,7 +73,6 @@ public class ApplianceDAOImplTest {
 
 	@Test
 	public void findSpeakers() {
-//			Speakers : POWER_CONSUMPTION=20, NUMBER_OF_SPEAKERS=3, FREQUENCY_RANGE=3-4, CORD_LENGTH=3;
 		ApplianceDAOImpl applianceDAO = new ApplianceDAOImpl();
 		Criteria<SearchCriteria.Speakers> speakersCriteria = new Criteria<>();
 		speakersCriteria.add(SearchCriteria.Speakers.NUMBER_OF_SPEAKERS, 3);
