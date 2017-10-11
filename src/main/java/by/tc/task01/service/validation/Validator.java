@@ -14,6 +14,9 @@ public class Validator {
 	private static final Pattern RANGE = Pattern.compile("((\\d+\\.\\d+)|(\\d+))-((\\d+\\.\\d+)|(\\d+))");
 
 	public static <E> boolean criteriaValidator(Criteria<E> criteria) {
+		if (criteria.getCriteriaList().isEmpty()) {
+			return false;
+		}
 		switch (criteria.getParamClassName()) {
 			case "TabletPC": {
 				for (Map.Entry<E, Object> entry : criteria.getCriteria().entrySet()) {

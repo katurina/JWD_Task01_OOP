@@ -3,17 +3,17 @@ package by.tc.task01.entity;
 public class TabletPC extends Appliance {
 	private int batteryCapacity;
 	private int displayInches;
-	private int memoryRom;
+	private int memoryROM;
 	private int flashMemoryCapacity;
 	private String color;
 
 	public TabletPC() {
 	}
 
-	public TabletPC(int batteryCapacity, int displayInches, int memoryRom, int flashMemoryCapacity, String color) {
+	public TabletPC(int batteryCapacity, int displayInches, int memoryROM, int flashMemoryCapacity, String color) {
 		this.batteryCapacity = batteryCapacity;
 		this.displayInches = displayInches;
-		this.memoryRom = memoryRom;
+		this.memoryROM = memoryROM;
 		this.flashMemoryCapacity = flashMemoryCapacity;
 		this.color = color;
 	}
@@ -34,12 +34,12 @@ public class TabletPC extends Appliance {
 		this.displayInches = displayInches;
 	}
 
-	public int getMemoryRom() {
-		return memoryRom;
+	public int getMemoryROM() {
+		return memoryROM;
 	}
 
-	public void setMemoryRom(int memoryRom) {
-		this.memoryRom = memoryRom;
+	public void setMemoryROM(int memoryROM) {
+		this.memoryROM = memoryROM;
 	}
 
 	public int getFlashMemoryCapacity() {
@@ -86,7 +86,7 @@ public class TabletPC extends Appliance {
 		if (getFlashMemoryCapacity() != that.getFlashMemoryCapacity()) {
 			return false;
 		}
-		return getMemoryRom() == that.getMemoryRom();
+		return getMemoryROM() == that.getMemoryROM();
 	}
 
 	@Override
@@ -95,7 +95,7 @@ public class TabletPC extends Appliance {
 		result = 31 * result + (getColor() != null ? getColor().hashCode() : 0);
 		result = 31 * result + getDisplayInches();
 		result = 31 * result + getFlashMemoryCapacity();
-		result = 31 * result + getMemoryRom();
+		result = 31 * result + getMemoryROM();
 		return result;
 	}
 
@@ -104,7 +104,7 @@ public class TabletPC extends Appliance {
 		return "TabletPC : " +
 				"batteryCapacity=" + batteryCapacity +
 				", displayInches=" + displayInches +
-				", memoryRom=" + memoryRom +
+				", memoryROM=" + memoryROM +
 				", flashMemoryCapacity=" + flashMemoryCapacity +
 				", color=" + color;
 	}
