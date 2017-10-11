@@ -39,7 +39,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 					}
 					if (containsCriteria) {
 						ApplianceDirector applianceDirector = new ApplianceDirector();
-						return applianceDirector.getApplianceCreator(applianceNameActual).createAppliance(tmp);
+						return applianceDirector.getApplianceManager(applianceNameActual).createAppliance(tmp);
 					}
 
 				}

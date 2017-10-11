@@ -12,7 +12,7 @@ public class Validator {
 			return false;
 		}
 		ApplianceDirector applianceDirector = new ApplianceDirector();
-		ApplianceValidator appliance = (ApplianceValidator) applianceDirector.getApplianceCreator(criteria.getParamClassName());
+		ApplianceValidator appliance = applianceDirector.getApplianceManager(criteria.getParamClassName());
 		return appliance.criteriaValidator(criteria);
 	}
 }

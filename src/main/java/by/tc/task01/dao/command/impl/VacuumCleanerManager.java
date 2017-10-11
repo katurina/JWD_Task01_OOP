@@ -1,38 +1,44 @@
 package by.tc.task01.dao.command.impl;
 
-import by.tc.task01.dao.command.ApplianceCreator;
-import by.tc.task01.dao.command.ApplianceValidator;
+import by.tc.task01.dao.command.ApplianceManager;
 import by.tc.task01.entity.Appliance;
 import by.tc.task01.entity.VacuumCleaner;
 import by.tc.task01.entity.criteria.Criteria;
 
 import java.util.Map;
+import java.util.regex.Matcher;
 
+import static by.tc.task01.dao.command.impl.constants.RegularConstants.FINDER;
 import static by.tc.task01.dao.command.impl.constants.RegularConstants.INT;
 import static by.tc.task01.dao.command.impl.constants.RegularConstants.STRING;
 import static by.tc.task01.dao.command.impl.constants.RegularConstants.STRING_SPECIFIC_SYMBOL;
 
-public class VacuumCleanerCreator implements ApplianceCreator, ApplianceValidator {
+public class VacuumCleanerManager implements ApplianceManager {
 	@Override
 	public Appliance createAppliance(String line) {
+		Matcher matcher = FINDER.matcher(line);
 		VacuumCleaner vacuumCleaner = new VacuumCleaner();
-		vacuumCleaner.setPowerConsumption(Integer.decode(line.substring(line.indexOf('=') + 1, line.indexOf(','))));
-		line = line.substring(line.indexOf(',') + 2);
-		vacuumCleaner.setFilterType(line.substring(line.indexOf('=') + 1, line.indexOf(',')));
-		line = line.substring(line.indexOf(',') + 2);
-		vacuumCleaner.setBagType(line.substring(line.indexOf('=') + 1, line.indexOf(',')));
-		line = line.substring(line.indexOf(',') + 2);
-		vacuumCleaner.setWandType(line.substring(line.indexOf('=') + 1, line.indexOf(',')));
-		line = line.substring(line.indexOf(',') + 2);
-		vacuumCleaner.setMotorSpeedRegulation(Integer.decode(line.substring(line.indexOf('=') + 1, line.indexOf(','))));
-		line = line.substring(line.indexOf(',') + 2, line.length() - 1);
-		vacuumCleaner.setCleaningWidth(Integer.decode(line.substring(line.indexOf('=') + 1)));
+		matcher.find();
+		vacuumCleaner.setPowerConsumption(Integer.decode(matcher.group(2)));
+		matcher.find();
+		vacuumCleaner.setFilterType(matcher.group(2));
+		matcher.find();
+		vacuumCleaner.setBagType(matcher.group(2));
+		matcher.find();
+		vacuumCleaner.setWandType(matcher.group(2));
+		matcher.find();
+		vacuumCleaner.setMotorSpeedRegulation(Integer.decode(matcher.group(2)));
+		matcher.find();
+		vacuumCleaner.setCleaningWidth(Integer.decode(matcher.group(2)));
 		return vacuumCleaner;
 	}
 
 	@Override
 	public <E> boolean criteriaValidator(Criteria<E> criteria) {
 		for (Map.Entry<E, Object> entry : criteria.getCriteria().entrySet()) {
+			if (entry.getValue() == null) {
+				return false;
+			}
 			String nameKey = entry.getKey().toString();
 			if (nameKey.equals("POWER_CONSUMPTION") || nameKey.equals("MOTOR_SPEED_REGULATION") || nameKey.equals("CLEANING_WIDTH")) {
 				if (!INT.matcher(entry.getValue().toString()).matches()) {

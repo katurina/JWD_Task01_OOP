@@ -100,7 +100,14 @@ public class ValidatorTest {
 		vacuumCleanerCriteria.add(SearchCriteria.VacuumCleaner.MOTOR_SPEED_REGULATION, 2900);
 		vacuumCleanerCriteria.add(SearchCriteria.VacuumCleaner.CLEANING_WIDTH, 25);
 		boolean b = Validator.criteriaValidator(vacuumCleanerCriteria);
-		Assert.assertEquals(true, b);
+		Assert.assertTrue(b);
+	}
+
+	@Test
+	public void criteriaValidatorShuffle() {
+		Criteria<TabletPC> tabletPCCriteria = new Criteria<>();
+		tabletPCCriteria.add(TabletPC.COLOR, null);
+		Assert.assertFalse(Validator.criteriaValidator(tabletPCCriteria));
 	}
 
 
