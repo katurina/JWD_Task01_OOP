@@ -6,18 +6,18 @@ import by.tc.task01.entity.Appliance;
 import by.tc.task01.entity.criteria.Criteria;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 
 
 public class ApplianceDAOImpl implements ApplianceDAO {
 
-	private final static String PATH = "src\\main\\resources\\appliances_db.txt";
-
 	@Override
 	public <E> Appliance find(Criteria<E> criteria) {
-		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(PATH))) {
+		try (BufferedReader bufferedReader = new BufferedReader(
+				new InputStreamReader(getClass().getClassLoader()
+						.getResourceAsStream("appliances_db.txt"), "UTF-8"));) {
 			if (criteria == null) {
 				return null;
 			}
@@ -44,10 +44,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 
 				}
 			}
-		} catch (
-				IOException e)
-
-		{
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return null;
